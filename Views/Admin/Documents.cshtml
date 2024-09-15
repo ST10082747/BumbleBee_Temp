@@ -1,0 +1,52 @@
+﻿@model List<BumbleBeeFoundation.Models.Document>
+
+@{
+    ViewBag.Title = "Document Management";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Document Management</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Document Name</th>
+            <th>Document Type</th>
+            <th>Company</th>
+            <th>Upload Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var document in Model)
+        {
+            <tr>
+                <td>@document.DocumentName</td>
+                <td>@document.DocumentType</td>
+                <td>@document.CompanyName</td>
+                <td>@document.UploadDate.ToString("yyyy-MM-dd")</td>
+                <td>@document.Status</td>
+                <td>
+                    @if (document.Status == "Pending")
+                    {
+                        @using (Html.BeginForm("ApproveDocument", "Admin", new { documentId = document.DocumentID }, FormMethod.Post, null, new { style = "display:inline;" }))
+                        {
+                            <button type="submit" class="btn btn-success btn-sm">Approve</button>
+                        }
+
+                        @using (Html.BeginForm("RejectDocument", "Admin", new { documentId = document.DocumentID }, FormMethod.Post, null, new { style = "display:inline;" }))
+                        {
+                            <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                        }
+
+                    }
+                    else
+                    {
+                        @document.Status
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

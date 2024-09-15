@@ -1,0 +1,32 @@
+﻿@model IEnumerable<FundingRequestViewModel>
+@{
+    ViewData["Title"] = "Funding Request History";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Request ID</th>
+            <th>Submitted At</th>
+            <th>Requested Amount</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.RequestID</td>
+                <td>@item.SubmittedAt.ToString("yyyy-MM-dd")</td>
+                <td>@item.RequestedAmount.ToString("C")</td>
+                <td>@item.Status</td>
+                <td>
+                    <a asp-action="FundingRequestDetails" asp-route-id="@item.RequestID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

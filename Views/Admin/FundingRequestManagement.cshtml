@@ -1,0 +1,43 @@
+﻿@model IEnumerable<BumbleBeeFoundation.Models.FundingRequest>
+
+@{
+    ViewData["Title"] = "Funding Request Management";
+}
+
+<h1>Funding Request Management</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.CompanyName)</th>
+            <th>@Html.DisplayNameFor(model => model.RequestedAmount)</th>
+            <th>@Html.DisplayNameFor(model => model.Status)</th>
+            <th>@Html.DisplayNameFor(model => model.SubmittedAt)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.CompanyName)</td>
+                <td>@Html.DisplayFor(modelItem => item.RequestedAmount)</td>
+                <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                <td>@Html.DisplayFor(modelItem => item.SubmittedAt)</td>
+                <td>
+                    <a asp-action="FundingRequestDetails" asp-route-id="@item.RequestID" class="btn btn-info btn-sm">Details</a>
+                    @if (item.Status == "Pending")
+                    {
+                        <form asp-action="ApproveFundingRequest" asp-route-id="@item.RequestID" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-success btn-sm">Approve</button>
+                        </form>
+                        <form asp-action="RejectFundingRequest" asp-route-id="@item.RequestID" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+    <a asp-action="Dashboard" asp-controller="Admin" class="btn btn-primary">Back To Dashboard</a>
+</table>

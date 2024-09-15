@@ -1,0 +1,36 @@
+﻿@model IEnumerable<DonationViewModel>
+@{
+    ViewData["Title"] = "Donation History";
+}
+
+@if (ViewBag.Message != null)
+{
+    <p>@ViewBag.Message</p>
+}
+
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Donation ID</th>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Donor Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.DonationId</td>
+                <td>@item.DonationDate.ToString("yyyy-MM-dd")</td>
+                <td>@item.DonationType</td>
+                <td>@item.DonationAmount.ToString("C")</td>
+                <td>@item.DonorName</td>
+            </tr>
+        }
+    </tbody>
+</table>

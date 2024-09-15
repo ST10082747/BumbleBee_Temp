@@ -1,0 +1,22 @@
+﻿@model FundingRequestViewModel
+
+<form asp-action="RequestFunding" method="post">
+    <div class="form-group">
+        <label asp-for="ProjectDescription"></label>
+        <input asp-for="ProjectDescription" class="form-control" />
+        <span asp-validation-for="ProjectDescription" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="RequestedAmount"></label>
+        <input asp-for="RequestedAmount" class="form-control" />
+        <span asp-validation-for="RequestedAmount" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ProjectImpact"></label>
+        <input asp-for="ProjectImpact" class="form-control" />
+        <span asp-validation-for="ProjectImpact" class="text-danger"></span>
+    </div>
+    <!-- Hidden field for Status if you want to set it on the server -->
+    <input type="hidden" asp-for="Status" value="Pending" />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

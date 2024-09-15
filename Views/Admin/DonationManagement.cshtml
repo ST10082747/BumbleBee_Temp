@@ -1,0 +1,36 @@
+﻿@model IEnumerable<BumbleBeeFoundation.Models.Donation>
+
+@{
+    ViewData["Title"] = "Donation Management";
+}
+
+<h1>Donation Management</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.DonationDate)</th>
+            <th>@Html.DisplayNameFor(model => model.DonationType)</th>
+            <th>@Html.DisplayNameFor(model => model.DonationAmount)</th>
+            <th>@Html.DisplayNameFor(model => model.DonorName)</th>
+            <th>@Html.DisplayNameFor(model => model.CompanyName)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.DonationDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.DonationType)</td>
+                <td>@Html.DisplayFor(modelItem => item.DonationAmount)</td>
+                <td>@Html.DisplayFor(modelItem => item.DonorName)</td>
+                <td>@Html.DisplayFor(modelItem => item.CompanyName)</td>
+                <td>
+                    <a asp-action="DonationDetails" asp-route-id="@item.DonationID" class="btn btn-info btn-sm">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <a asp-action="Dashboard" asp-controller="Admin" class="btn btn-primary">Back To Dashboard</a>
+</table>

@@ -1,0 +1,39 @@
+﻿@model CompanyViewModel
+@{
+    ViewData["Title"] = "Company Dashboard";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (Model != null)
+{
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Company Information</h3>
+            <dl class="row">
+                <dt class="col-sm-4">Company Name</dt>
+                <dd class="col-sm-8">@Model.CompanyName</dd>
+                <dt class="col-sm-4">Contact Email</dt>
+                <dd class="col-sm-8">@Model.ContactEmail</dd>
+                <dt class="col-sm-4">Contact Phone</dt>
+                <dd class="col-sm-8">@Model.ContactPhone</dd>
+                <dt class="col-sm-4">Date Joined</dt>
+                <dd class="col-sm-8">@Model.DateJoined.ToString("yyyy-MM-dd")</dd>
+                <dt class="col-sm-4">Status</dt>
+                <dd class="col-sm-8">@Model.Status</dd>
+            </dl>
+        </div>
+        <div class="col-md-6">
+            <h3>Quick Actions</h3>
+            <ul>
+                <li><a asp-action="RequestFunding">Request Funding</a></li>
+                <li><a asp-action="FundingRequestHistory">View Funding Request History</a></li>
+            </ul>
+        </div>
+    </div>
+}
+else
+{
+    <p>No company information available.</p>
+}
+

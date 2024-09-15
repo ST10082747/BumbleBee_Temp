@@ -1,0 +1,58 @@
+﻿@model BumbleBeeFoundation.Models.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<h1>Admin Dashboard</h1>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Total Users</h5>
+                <p class="card-text">@Model.TotalUsers</p>
+                <a asp-action="UserManagement" asp-controller="Admin" class="btn btn-primary">Manage Users</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Total Companies</h5>
+                <p class="card-text">@Model.TotalCompanies</p>
+                <a asp-action="CompanyManagement" asp-controller="Admin" class="btn btn-primary">Manage Companies</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Total Donations</h5>
+                <p class="card-text">@Model.TotalDonations</p>
+                <a asp-action="DonationManagement" asp-controller="Admin" class="btn btn-primary">Manage Donations</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Total Funding Requests</h5>
+                <p class="card-text">@Model.TotalFundingRequests</p>
+                <a asp-action="FundingRequestManagement" asp-controller="Admin" class="btn btn-primary">Manage Funding</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 mb-3">
+            <a asp-action="Documents" asp-controller="Admin" class="btn btn-success w-100">View Documents</a>
+        </div>
+        <div class="col-md-3 mb-3">
+            <a asp-action="DonationReport" asp-controller="Admin" class="btn btn-info w-100">Access Donations Report</a>
+        </div>
+        <div class="col-md-3 mb-3">
+            <a asp-action="FundingRequestReport" asp-controller="Admin" class="btn btn-warning w-100">Access Project Funds Report</a>
+        </div>
+    </div>
+
+</div>

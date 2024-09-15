@@ -1,0 +1,43 @@
+﻿@model BumbleBeeFoundation.Models.Donation
+
+@{
+    ViewData["Title"] = "Donation Details";
+}
+
+<h1>Donation Details</h1>
+
+<div>
+    <h4>Donation ID: @Model.DonationID</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.DonationDate)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.DonationDate)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.DonationType)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.DonationType)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.DonationAmount)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.DonationAmount)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.DonorName)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.DonorName)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.DonorIDNumber)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.DonorIDNumber)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.DonorTaxNumber)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.DonorTaxNumber)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.DonorEmail)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.DonorEmail)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.DonorPhone)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.DonorPhone)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.CompanyName)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.CompanyName)</dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="DonationManagement" class="btn btn-secondary">Back to List</a>
+</div>
